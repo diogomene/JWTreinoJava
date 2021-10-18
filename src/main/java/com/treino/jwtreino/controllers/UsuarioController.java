@@ -24,6 +24,10 @@ public class UsuarioController {
         return ResponseEntity.ok().body(usuarioService.getUsuarios());
     }
 
+    @GetMapping("/procurar/{usuario}")
+    public ResponseEntity<Usuario> procurar(@PathVariable("usuario") String usuario){
+        return ResponseEntity.ok().body(usuarioService.getUsuario(usuario));
+    }
     @PostMapping("/incluir")
     public ResponseEntity<Usuario> incluir(@RequestBody Usuario usuario){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/usuario/incluir").toUriString());

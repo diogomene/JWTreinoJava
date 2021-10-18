@@ -16,7 +16,10 @@ public class Usuario {
     private  String password;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Funcao> funcoes = new ArrayList<Funcao>();
-    public Usuario(){}
+
+    public Usuario(){
+        this.funcoes=new ArrayList<Funcao>();
+    }
     public Usuario(Long id, String nome, String username, String password, Collection<Funcao> funcoes) {
         this.id = id;
         this.nome = nome;
